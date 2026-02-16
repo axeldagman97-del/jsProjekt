@@ -5,14 +5,13 @@ const textArea = document.getElementById('textArea');
 const searchArea = document.getElementById('searchArea');
 
 const button = document.getElementById('addBtn');
-const clearBtn = document.getElementById('clearBtn');
 const apiBtn = document.getElementById('apiBtn');
 
 const list = document.getElementById('list1');
 const done = document.getElementById('list2');
 const apiList = document.getElementById('list3');
 
-
+const errorMsg = document.getElementById("errorMsg");
 
 let toDoArray = []
 
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedData){
         toDoArray = JSON.parse(savedData);
 
-        renderList(toDoArray);
+        renderList(toDoArray);                                           //skicka toDoArray (sparad i local Storage) till renderList
     }
 });
 
@@ -49,14 +48,18 @@ function renderList(array){
 
 //Lägg till i listan
 
-button.addEventListener("click", (event) => {                                    //Form, vid klick
+button.addEventListener("click", (event) => {                                  //Hämtar formuläret 
     event.preventDefault();
 
-    if (textArea.value.trim() === "") {                                          //Validering, kontrollerar att fältet inte är tomt. 
-        alert("Du måste skriva något");
+    const text = textArea.value.trim();
+
+    if(text === "") {
+        errorMsg.textContent = "Du måste skriva nåt";                            // Felmeddelande som en del av UI
         return;
     }
 
+    errorMsg.textContent = "";
+    
     const toDoItem = {
         id: Date.now(),
         text: textArea.value,    
@@ -70,7 +73,7 @@ button.addEventListener("click", (event) => {                                   
 
     renderList(toDoArray);
 
-    textArea.value = "";                                                         //Succes state.  
+    textArea.value = "";                                                         //Succes state.  Ger användaren feedback.
 
 });
 
@@ -154,15 +157,12 @@ async function fetchApi () {
 };
 
 apiBtn.addEventListener("click", async () => {
-    const data = await fetchApi(); // Vänta på att datan hämtas
+    const data = await fetchApi();                                                          // Vänta på att datan hämtas
     
     if (data) {
-        const li = document.createElement("li"); // Skapa li-element 
-        li.textContent = `API-uppgift: ${data.title}`; // Sätt text från API-responsen 
-        apiList.appendChild(li); // Lägg till i listan list3 
+        const li = document.createElement("li");                                            // Skapa li-element 
+        li.textContent = `API-uppgift: ${data.title}`;                                      // Sätt text från API-responsen 
+        apiList.appendChild(li);                                                            // Lägg till i listan list3 
     }
 });
    
-
-
-
