@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+ <h1> Welcome to My list</h1>
+
+ <form id="form" class="listbox">
+    <input type="text" id="textArea" placeholder="write here"></input>
+    <button type="submit" id="addBtn"> Lägg till </button>
+    <button type ="button" id="clearBtn"> Rensa lista </button>
+    <button type = "button" id="apiBtn">Hämta API</button>
+    
+</form>
+<br> 
+
+<section class="listbox">
+    <input type="text" id="searchArea" placeholder="Sök Lista..." />
+</section>
+
+<p id="searchMessage"> </p>
+
+  <section class="listbox"> 
+       <h2>To Do</h2>
+       <ul id="list1">
+       </ul>
+       <p id="emptyMessage"></p>
+  </section>
+   
+
+  <Section class="klar"> 
+        <h2>Done</h2>
+        <ul id="list2">
+        </ul>
+        <p id="emptyMessage2"></p>
+  </Section>
+
+
+
+  <Section class="listbox"> 
+    <h2>Api</h2> 
+    <ul id="list3">
+    </ul>
+    <p id="emptyMessage2"></p>
+</Section>
+
+  
+    
+    
+<script src="index.js"></script>
+</body>
+</html>

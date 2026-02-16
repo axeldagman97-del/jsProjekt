@@ -1,0 +1,7 @@
+.klar{
+    color: rgb(20, 178, 20);
+}
+
+#addBtn:hover, #clearBtn:hover, #apiBtn:hover{
+    background-color: lightblue;
+}
