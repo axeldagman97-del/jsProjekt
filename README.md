@@ -8,8 +8,8 @@ Använder även Local Storage för att spara uppgifter lokalt i webbläsaren sam
 
 Funktioner:
 
-- Lägga till uppgifter:** Användaren kan skriva in och lägga till nya uppgifter i listan.
-- Validering:** Ett felmeddelande visas om användaren försöker lägga till en tom uppgift.
+- Lägga till uppgifter: Användaren kan skriva in och lägga till nya uppgifter i listan.
+- Validering: Ett felmeddelande visas om användaren försöker lägga till en tom uppgift.
 - Markera som klar:  Uppgifter kan flyttas från To Do-listan till Done-listan.
 - Radera uppgifter: Användaren kan ta bort uppgifter från listan.
 - Sökfunktion:  Filtrerar uppgifter baserat på användarens söktext.
